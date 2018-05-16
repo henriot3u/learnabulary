@@ -1,0 +1,329 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/main.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8"/>
+      <!--Color Android Browser-->
+      <meta name="theme-color" content="#ff7043">
+      <title>Learnabulary</title>
+      <link rel="icon" href="lang.ico" type="image/x-icon"/>
+    </head>
+
+    <body>
+
+      <header>
+        <nav>
+          <div class="nav-wrapper white">
+            <a href="index.html" class="brand-logo brand-logo-small center"><img src="img/lang.png" alt="Logo" width="84"></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons deep-orange-text text-lighten-2">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li class="active"><a href="newList.html" class="deep-orange-text text-lighten-2">[+] New List</a></li>
+              <li><a href="lists.html" class="deep-orange-text text-lighten-2">(&Phi;) See Lists</a></li>
+              <li><a href="importExport.html" class="deep-orange-text text-lighten-2">&uarr;&darr; Import/Export</a></li>
+              <li><a href="exam.html" class="deep-orange-text text-lighten-2">{&rarr;} Start Exam</a></li>
+              <li><a href="statistics.html" class="deep-orange-text text-lighten-2">"%" Statistics & badges</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li class="active"><a href="newList.html" class="deep-orange-text text-lighten-2">[+] New List</a></li>
+              <li><a href="lists.html" class="deep-orange-text text-lighten-2">(&Phi;) See Lists</a></li>
+              <li><a href="importExport.html" class="deep-orange-text text-lighten-2">&uarr;&darr; Import/Export</a></li>
+              <li><a href="exam.html" class="deep-orange-text text-lighten-2">{&rarr;} Start Exam</a></li>
+              <li><a href="statistics.html" class="deep-orange-text text-lighten-2">"%" Statistics & badges</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+
+        <div class="row" id="div-no-action" style="display: none;">
+          <div class="col s12 m8 l8 offset-m2 offset-l2">
+            <h1 class="header light white-text">New list of vocabulary</h1>
+            <div class="card horizontal hoverable">
+              <div class="card-image">
+                <img src="img/pocketWatch2.jpg" alt="Little image of a pocket watch">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content teal-text valign-wrapper" id="divNoActionContent">
+                  <p class="light valign">You can't create, modify or delete a list when an exam is running. To do this, you need to stop it by going on the dedicated page or by clicking on the link bellow.</p>
+                </div>
+                <div class="card-action">
+                  <a id="btnStopExam" class="ligth deep-orange-text" href="#">Stop the exam</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="divNewList" style="display: none;">
+          <div class="center white-text">
+            <h1 class="light">New list of vocabulary</h1>
+            <h5 class="light">Write the words you want to know and give them translations</h5>
+          </div>
+
+          <div class="row">
+            <div class="col s12 m8 l8 offset-m2 offset-l2">
+              <div class="card white">
+                <div class="card-content deep-orange-text text-lighten-1">
+
+                  <div id="div-msg-error" class="row div-msg">
+                    <div class="col s12 m8 l8 offset-m2 offset-l2">
+                      <div class="card-panel red card-panel-msg">
+                        <span class="white-text row valign-wrapper">
+                          <div class="col s1 m1 l1 valign">
+                            <i class="material-icons">report_problem</i>
+                          </div>
+                          <div id="div-msg-error-text" class="col s11 m11 l11 valign">
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="div-msg-success" class="row div-msg">
+                    <div class="col s12 m8 l8 offset-m2 offset-l2">
+                      <div class="card-panel green card-panel-msg">
+                        <span class="white-text row valign-wrapper">
+                          <div class="col s1 m1 l1 valign">
+                            <i class="material-icons">check_circle</i>
+                          </div>
+                          <div id="div-msg-success-text" class="col s11 m11 l11 valign">
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="card-title teal-text center-align ligth">New List</p>
+                  <p></p>
+
+                  <div class="row">
+                    <form class="col s12 form">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">assignment</i>
+                          <input placeholder="Name of the list" id="list_name" name="list_name" type="text" class="validate">
+                          <label for="list_name" data-error="" data-success="">Name</label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                          <i class="material-icons prefix">language</i>
+                          <input placeholder="French" id="language1" name="language1" type="text" class="validate autocomplete">
+                          <label for="language1" data-error="" data-success="">Your language</label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                          <i class="material-icons prefix">language</i>
+                          <input placeholder="English" id="language2" name="language2" type="text" class="validate autocomplete">
+                          <label for="language2" data-error="" data-success="">Target language</label>
+                        </div>
+                        <div class="col s12 m12 l12">
+                          <div class="col s10 m10 l10 offset-s1 offset-m1 offset-l1" style="border-bottom:1px solid #9e9e9e; padding:30px;">
+                          </div>
+                        </div>
+                        <div class="col s12 m12 l12" style="padding: 10px;">
+                          <p class="center-align teal-text card-title light">Words</p>
+                          <p class="center-align light">You can add a comment to your words and translations, just put it between "(" and ")". Be careful, not to put a "," between "(" and ")".</p>
+                        </div>
+                        <div id="div-words" class="row">
+                          <!-- Word 1 -->
+                          <div id="div-word-1" class="row">
+                            <div class="col s12 m2 l2">
+                              <span>Word 1</span>
+                            </div>
+                            <div class="input-field col s12 m4 l4">
+                              <input placeholder="Work" id="word_1" name="word[1]" type="text" class="validate input-word">
+                              <label for="word_1" data-error="" data-success="">Word</label>
+                            </div>
+                            <div class="col s12 m1 l1">
+                              <i class="material-icons prefix">trending_flat</i>
+                            </div>
+                            <div class="input-field col s10 m4 l4">
+                              <input placeholder="Travail" id="translation_1" name="translation[1]" type="text" class="validate input-translation">
+                              <label for="translation_1" data-error="" data-success="">Translation</label>
+                            </div>
+                            <div class="col s2 m1 l1">
+                              <a class="waves-effect waves-light btn-floating btn-word-manage-translations btn-add-translation btn tooltipped" data-position="right" data-delay="50" data-tooltip="Add translation" data-id="1"><i class="material-icons">add</i></a>
+                            </div>
+                          </div>
+                          <!-- Word 2 -->
+                          <div id="div-word-2" class="row">
+                            <div class="col s12 m2 l2">
+                              <span>Word 2</span>
+                            </div>
+                            <div class="input-field col s12 m4 l4">
+                              <input placeholder="Chairman" id="word_2" name="word[2]" type="text" class="validate input-word">
+                              <label for="word_2" data-error="" data-success="">Word</label>
+                            </div>
+                            <div class="col s12 m1 l1">
+                              <i class="material-icons prefix">trending_flat</i>
+                            </div>
+                            <div class="input-field col s10 m4 l4">
+                              <input placeholder="Président" id="translation_2" name="translation[2]" type="text" class="validate input-translation">
+                              <label for="translation_2" data-error="" data-success="">Translation</label>
+                            </div>
+                            <div class="col s2 m1 l1">
+                              <a class="waves-effect waves-light btn-floating btn-word-manage-translations btn-add-translation btn tooltipped" data-position="right" data-delay="50" data-tooltip="Add translation" data-id="2"><i class="material-icons">add</i></a>
+                            </div>
+                          </div>
+                          <!-- Word 3 -->
+                          <div id="div-word-3" class="row">
+                            <div class="col s12 m2 l2">
+                              <span>Word 3</span>
+                            </div>
+                            <div class="input-field col s12 m4 l4">
+                              <input placeholder="Meeting" id="word_3" name="word[3]" type="text" class="validate input-word">
+                              <label for="word_3" data-error="" data-success="">Word</label>
+                            </div>
+                            <div class="col s12 m1 l1">
+                              <i class="material-icons prefix">trending_flat</i>
+                            </div>
+                            <div class="input-field col s10 m4 l4">
+                              <input placeholder="Réunion" id="translation_3" name="translation[3]" type="text" class="validate input-translation">
+                              <label for="translation_3" data-error="" data-success="">Translation</label>
+                            </div>
+                            <div class="col s2 m1 l1">
+                              <a class="waves-effect waves-light btn-floating btn-word-manage-translations btn-add-translation btn tooltipped" data-position="right" data-delay="50" data-tooltip="Add translation" data-id="3"><i class="material-icons">add</i></a>
+                            </div>
+                          </div>
+                          <!-- Word 4 -->
+                          <div id="div-word-4" class="row">
+                            <div class="col s12 m2 l2">
+                              <span>Word 4</span>
+                            </div>
+                            <div class="input-field col s12 m4 l4">
+                              <input placeholder="Seminar" id="word_4" name="word[4]" type="text" class="validate input-word">
+                              <label for="word_4" data-error="" data-success="">Word</label>
+                            </div>
+                            <div class="col s12 m1 l1">
+                              <i class="material-icons prefix">trending_flat</i>
+                            </div>
+                            <div class="input-field col s10 m4 l4">
+                              <input placeholder="Séminaire" id="translation_4" name="translation[4]" type="text" class="validate input-translation">
+                              <label for="translation_4" data-error="" data-success="">Translation</label>
+                            </div>
+                            <div class="col s2 m1 l1">
+                              <a class="waves-effect waves-light btn-floating btn-word-manage-translations btn-add-translation btn tooltipped" data-position="right" data-delay="50" data-tooltip="Add translation" data-id="4"><i class="material-icons">add</i></a>
+                            </div>
+                          </div>
+                          <!-- Word 5 -->
+                          <div id="div-word-5" class="row">
+                            <div class="col s12 m2 l2">
+                              <span>Word 5</span>
+                            </div>
+                            <div class="input-field col s12 m4 l4">
+                              <input placeholder="Accountant" id="word_5" name="word[5]" type="text" class="validate input-word">
+                              <label for="word_5" data-error="" data-success="">Word</label>
+                            </div>
+                            <div class="col s12 m1 l1">
+                              <i class="material-icons prefix">trending_flat</i>
+                            </div>
+                            <div class="input-field col s10 m4 l4">
+                              <input placeholder="Comptable" id="translation_5" name="translation[5]" type="text" class="validate input-translation">
+                              <label for="translation_5" data-error="" data-success="">Translation</label>
+                            </div>
+                            <div class="col s2 m1 l1">
+                              <a class="waves-effect waves-light btn-floating btn-word-manage-translations btn-add-translation btn tooltipped" data-position="right" data-delay="50" data-tooltip="Add translation" data-id="5"><i class="material-icons">add</i></a>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="center">
+                            <a class="waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Add word" id="btn-add-word"><i class="material-icons">add</i></a>
+                          </div>
+                        </div>
+
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+                <div class="card-action center-align">
+                  <a href="#" class="deep-orange-text text-lighten-2 btn grey lighten-2" id="btn-create-list">Create</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="modalTranslations" class="modal modal-fixed-footer">
+          <div class="modal-content teal-text">
+            <h4>Add translations / synonyms</h4>
+            <p>You can add how much translations you want, they will be considered as synonyms. You can add comment to your translation, just put it between ( and ). Be careful, don't put , between ( and ).
+            <p>Here is your current translation(s) :</p>
+            <div class="row">
+              <div id="div-add-translations">
+              </div>
+              <div class="col s2 m2 l2">
+                <a id="btn-trans-add-trans" class="waves-effect waves-light btn-floating btn tooltipped deep-orange lighten-1" data-position="right" data-delay="50" data-tooltip="Add translation"><i class="material-icons">add</i></a>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer row">
+            <div class="col s6 m6 l6">
+              <a href="#!" class="modal-action modal-close waves-effect waves-grey btn-flat deep-orange-text text-lighten-1">Annuler</a>
+            </div>
+            <div class="col s6 m6 l6">
+              <a href="#!" id="btnModalTranslationsAdd" class="waves-effect waves-teal btn-flat teal-text">Ajouter</a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="page-footer grey lighten-5 z-depth-3">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="deep-orange-text">Learnabulary</h5>
+              <p class="deep-orange-text text-lighten-2">If you have any problem or meet an error, please contact me by <a class="teal-text text-lighten-1" href="mailto:heloise.henriot@telecomnancy.eu">email</a>. Don't forget to describe clearly the problem and the actions which have led to it.</p>
+              <p class="deep-orange-text text-lighten-2">
+                For testing this application, here is a simple file containing a few lists of vocabulary. You can <a class="teal-text text-lighten-1" href="doc/learnabulary_all.json" download>download</a> it and import it on the website.
+              </p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="deep-orange-text text-lighten-1">Links</h5>
+              <ul>
+                <li><a href="index.html" class="deep-orange-text text-lighten-2">|H| Home</a></li>
+                <li><a href="newList.html" class="deep-orange-text text-lighten-2">[+] New List</a></li>
+                <li><a href="lists.html" class="deep-orange-text text-lighten-2">(&Phi;) See Lists</a></li>
+				<li><a href="importExport.html" class="deep-orange-text text-lighten-2">&uarr;&darr; Import/Export</a></li>
+                <li><a href="exam.html" class="deep-orange-text text-lighten-2">{&rarr;} Start Exam</a></li>
+                <li><a href="statistics.html" class="deep-orange-text text-lighten-2">"%" Statistics & badges</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container deep-orange-text text-lighten-1">
+          © 2017 Antoine GRIMON & Héloïse HENRIOT
+          <!--<a class="deep-orange-text text-lighten-1 right" href="#!">About me !</a>-->
+          </div>
+        </div>
+      </footer>
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/main.min.js"></script>
+      <script>
+        var currentPage = "newList";
+      </script>
+      <noscript>Sorry, your browser does not support JavaScript, this web application will not work !</noscript>
+    </body>
+    <!--<div class="loader row">
+      <div class="div col s12">
+        <div class="progress deep-orange lighten-5">
+            <div class="indeterminate deep-orange lighten-2"></div>
+        </div>
+      </div>
+    </div>
+    -->
+  </html>
